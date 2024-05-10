@@ -11,4 +11,7 @@ Preprocessing Steps:
 2) Handling Missing Data
     - We determined how many null values there are per attribute, and wrote findings to a new file
     - The categorical data was explored to an idea of the distribution of values
+  
+3) Normalize the data
+   - Normalize numerical values to address any skew in the data
     
