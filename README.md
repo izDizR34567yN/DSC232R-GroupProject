@@ -1,6 +1,8 @@
 # DSC232R-GroupProject
 
-## Current plans for preprocessing:
+## Latest updates are under Milestone2_Notebook.ipynb.
+
+### Current plans for preprocessing:
 
 1) Some preprocessing steps have already been implemented. E.g.: 
     - Through observing the schema, it was found that all attributes assume the string type (even numeric attributes).
