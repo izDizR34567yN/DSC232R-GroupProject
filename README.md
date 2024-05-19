@@ -78,10 +78,8 @@ The first model demonstrated that clustering based on audio features is a viable
 
 The complete code and notebooks for this project are available in the repository. The main files include:
 - `Milestone_3_Notebook.ipynb`: The latest implementation with updates for milestone 3.
-- `Milestone_3_Notebook_edit2.ipynb`: The code used for finding the best k using the elbow method.
 - `README.md`: This updated README file with the new work and modifications.
 
 ## Links to Code and Notebooks
 - [Milestone 3 Notebook](Milestone3_Notebook.ipynb)
-- [Milestone 3 Notebook Edit 2](Milestone3_Notebook_edit_2.ipynb)
 - [README File](README.md)
