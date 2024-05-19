@@ -72,7 +72,7 @@ The first model demonstrated that clustering based on audio features is a viable
 ## Code and Notebooks
 
 The complete code and notebooks for this project are available in the repository. The main files include:
-- `milestone3_notebook.py`: The latest implementation with updates for milestone 3.
+- `Milestone_3_Notebook.ipynb`: The latest implementation with updates for milestone 3.
 - `README.md`: This updated README file with the new work and modifications.
 
 ## Links to Code and Notebooks
