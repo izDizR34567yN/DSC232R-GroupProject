@@ -77,4 +77,4 @@ The complete code and notebooks for this project are available in the repository
 
 ## Links to Code and Notebooks
 - [Milestone 3 Notebook](Milestone3_Notebook.ipynb)
-- [README File]("README.md")
+- [README File](README.md)
