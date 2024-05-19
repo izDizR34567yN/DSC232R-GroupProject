@@ -43,13 +43,18 @@ We focused on the following audio features for clustering and playlist generatio
 ## Machine Learning Model
 
 ### KMeans Clustering
-We implemented KMeans clustering to group tracks based on their audio features. The optimal number of clusters was determined using the silhouette score. We experimented with different numbers of clusters and selected the best configuration.
+We implemented KMeans clustering to group tracks based on their audio features. 
 
 #### Steps:
 1. Assembled the audio features into a single vector.
 2. Scaled the features using `StandardScaler`.
 3. Applied KMeans clustering to the scaled features.
-4. Generated predictions and assigned cluster labels to each track.
+4. Used the Elbow Method to determine the optimal number of clusters for extracting themes or categories.
+5. Generated predictions and assigned cluster labels to each track.
+
+### Silhouette Score
+We used the silhouette score to evaluate the quality of the clusters for the playlist generation. This score helped us select the best configuration for clustering.
+
 
 ## Results
 
