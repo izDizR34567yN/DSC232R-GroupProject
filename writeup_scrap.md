@@ -20,7 +20,7 @@
 
       ### Data Exploration
   
-         The dataset of interest accords to a simple DataFrame model and is available for download as a csv file on Kaggle. To account for its massive scale, we employ Apache Spark to facilitate efficient analysis of the dataset. We begin by rendering the dataset as a Spark DataFrame such that we may derive a preliminary overview of its contents. Thereafter, we are able to carry out a brief exploratory data analysis that includes inspecting and appropriately adjusting the dataset's schema, counting observations, generating summary statistics for numeric attributes, and checking for missingness. 
+         The dataset of interest accords to a simple DataFrame model and is available for download as a csv file on Kaggle. To account for its massive scale, we employ Apache Spark to facilitate efficient analysis of the dataset. We begin by rendering the dataset as a Spark DataFrame such that we may derive a preliminary overview of its contents. Thereafter, we are able to carry out a brief exploratory data analysis that includes inspecting and appropriately adjusting the dataset's schema, counting observations, generating summary statistics for numeric attributes, and checking for missingness. The most significant results of this exploratory data analysis are outlined in the "Results" section of this report.
       
       ### Preprocessing
 
