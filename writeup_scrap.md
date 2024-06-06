@@ -2,6 +2,7 @@
 
 ## Required for README.md:
 1. Intro (by Andre)
+   
    This project aims to analyze a Spotify Charts dataset and develop a machine learning model to create personalized playlists based on audio features of the tracks. The goal is to cluster songs into different categories and generate playlists that fit specific themes or moods. The dataset used in this project is the [Spotify Charts (All Audio Data)](https://www.kaggle.com/datasets/sunnykakar/spotify-charts-all-audio-data) dataset from Kaggle, which includes various attributes related to Spotify music tracks. The dataset contains 26,174,269 observations with attributes such as ID, Title, Rank, Date, Artist, URL, Region, Chart, Trend, Streams, Track ID, Album, Popularity, Duration_ms, Explicit, Release_date, Available_markets, and Audio Features.
 
 2. Complete submission of all previous submissions (**pending**...)
