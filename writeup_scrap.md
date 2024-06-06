@@ -1,9 +1,9 @@
 # writeup scrap
 
 ## Required for README.md:
-1. Intro (by Andre)
+1. Intro (adapted from previous README.md submission by Andre)
    
-   This project aims to analyze a Spotify Charts dataset and develop a machine learning model to create personalized playlists based on audio features of the tracks. The goal is to cluster songs into different categories and generate playlists that fit specific themes or moods. The dataset used in this project is the [Spotify Charts (All Audio Data)](https://www.kaggle.com/datasets/sunnykakar/spotify-charts-all-audio-data) dataset from Kaggle, which includes various attributes related to Spotify music tracks. The dataset contains 26,174,269 observations with attributes such as ID, Title, Rank, Date, Artist, URL, Region, Chart, Trend, Streams, Track ID, Album, Popularity, Duration_ms, Explicit, Release_date, Available_markets, and Audio Features.
+   This project aims to analyze a Spotify Charts dataset and develop a machine learning model to create personalized playlists based on audio features of the tracks. The goal is to cluster songs into different categories and generate playlists that fit specific themes or moods. The dataset used in this project is the [Spotify Charts (All Audio Data)](https://www.kaggle.com/datasets/sunnykakar/spotify-charts-all-audio-data) dataset from Kaggle, which includes various attributes related to Spotify music tracks. Millions of observations with dozens of attributes render this dataset an unwieldy tangle of unrefined information, largely void of practical value in its raw form. By implementing scalable computational methods and technology, we aim to develop efficient model that can derive meaningful insights from an otherwise cryptic mass of information.
 
 2. Complete submission of all previous submissions (**pending**...)
 3. All code uploaded in the form of Jupyter notebooks that can be easily followed along to your GitHub repo (**pending**...)
@@ -20,8 +20,7 @@
 
       ### Data Exploration
   
-         
-      
+         The dataset of interest accords to a simple DataFrame model and is available for download as a csv file on Kaggle. To account for its massive scale, we employ Apache Spark to facilitate efficient analysis of the dataset...
       ### Preprocessing
 
       ### Model 1
