@@ -40,7 +40,7 @@
 
       ### Data Exploration
 
-         Our exploratory data analysis revealed that our dataset comprises 26,174,269 observations in a 28-dimensional feature space. In raw form, the dataset enforces a simple, monotonic schema in which all features are nullable strings, including those features which are semantically numerical. To enable statistical summarization of such features, we modify the given schema, casting features which are evidently numerical from string to numeric data types...
+         Our exploratory data analysis revealed that our dataset comprises 26,174,269 observations in a 28-dimensional feature space. In raw form, the dataset enforces a simple, monotonic schema in which all features are nullable strings, including those features which are semantically numerical. To enable statistical summarization of such features, we modify the given schema, casting features which are evidently numerical from string to float data types...
 
       ### Model 1
 
