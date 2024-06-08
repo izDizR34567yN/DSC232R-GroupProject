@@ -47,7 +47,7 @@
 
       ### Model Selection
 
-      Upon training a KMeans model, a BisectingKMeans models, and a Gaussian generative model for nine different choices of number of clusters, we generate the following plot of performances in terms of silhouette scores:
+      Upon training a KMeans model, a BisectingKMeans models, and a Gaussian generative model across nine different choices of number of clusters, we generate the following plot of performances in terms of silhouette scores:
 
 ![dsc232r_finalprojim2](https://github.com/izDizR34567yN/DSC232R-GroupProject/assets/169011035/30a0ab05-a50c-4f58-9fc0-e204a70f5323)
 
