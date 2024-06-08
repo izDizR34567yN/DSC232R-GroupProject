@@ -40,7 +40,14 @@
 
       ### Data Exploration
 
-         Our exploratory data analysis revealed that our dataset comprises 26,174,269 observations in a 28-dimensional feature space. In raw form, the dataset enforces a simple, monotonic schema in which all features are nullable strings, including those features which are semantically numerical. To enable statistical summarization of such features, we modify the given schema, casting features which are evidently numerical from string to float data types...
+         Our exploratory data analysis revealed that our dataset comprises 26,174,269 observations in a 28-dimensional feature space. In raw form, the dataset enforces a simple, monotonic schema in which all features are nullable strings, including those features which are semantically numerical. To enable statistical summarization of such features, we modify the given schema, casting features which are evidently numerical from string to float data types.
+
+         Our preliminary analysis further revealed that the dataset is mostly complete, with relatively few missing values. The percentage of missing values per attribute is well under 2%, and only one feature ("streams") contains a notable proportion (22.37%) of missing values. To avoid sampling bias on this feature--and because we expect the number of streams per record to be comparatively insignificant for our purposes--we simply exclude this feature from our future analyses.
+
+         Finally, through select scatterplots, we seek a very generic level of insight concerning any potentially noteworthy relationships among features. While most pairs of features appear to be largely independent, a few pairs do exhibit an obvious degree of association that confirm sensible notions about them. For example, the following plot accurately reflects the physical definition of loudness as a logarithmic function of energy:
+
+![dsc232r_finalprojim1](https://github.com/izDizR34567yN/DSC232R-GroupProject/assets/169011035/73faf648-9f5a-4bba-85d1-6fe1eecec41a)
+
 
       ### Model 1
 
