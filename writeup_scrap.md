@@ -57,13 +57,13 @@
 
 ![dsc232r_finalprojim4](https://github.com/izDizR34567yN/DSC232R-GroupProject/assets/169011035/416fed82-68a8-4ac0-b8c3-687662a8e17f)
 
-   Unlike the KMeans model, the optimal number of clusters is somewhat less dramatically evident in this case. Still with reasonable judgment, one would very likely select eight as the optimal number of clusters for training a BisectingKMeans model on our dataset.
+   Unlike the KMeans model, the optimal number of clusters is somewhat less dramatically evident in this case. Still with reasonable judgment, one would very likely select eight as the optimal number of clusters for training a BisectingKMeans model on our dataset. Because of the rather inconvenient computational expense associated with training Gaussian generative models, we forgo repeatinging the elbow method using Gaussian generative models, and we deem it worthwile to only consider Gaussian generative models in our silhouette score analysis.
 
-   To confirm these findings, we also training a KMeans model, a BisectingKMeans model, and a Gaussian generative model across our range of number of clusters, which subsequently allows us to generate the following compact plot of performances in terms of silhouette scores:
+   To confirm our previous findings, we again train KMeans models and BisectingKMeans models across the same range of number of clusters and calculate their silhouette scores. We also train Gaussian generative models over the same range. This allows us to generate the following compact plot of performances in terms of silhouette scores:
 
 ![dsc232r_finalprojim2](https://github.com/izDizR34567yN/DSC232R-GroupProject/assets/169011035/30a0ab05-a50c-4f58-9fc0-e204a70f5323)
 
-   
+   Quite fortunately, this plot exactly confirms our previous findings with respect to both KMeans and BisectingKMeans models.
 
 
    6. Discussion section: This is where you will discuss the why, and your interpretation and your though process from beginning to end. This will mimic the sections you have created in your methods section as well as new sections you feel you need to create. You can also discuss how believable your results are at each step. You can discuss any short comings. It's ok to criticize as this shows your intellectual merit, as to how you are thinking about things scientifically and how you are able to correctly scrutinize things and find short comings. In science we never really find the perfect solution, especially since we know something will probably come up int he future (i.e. donkeys) and mess everything up. If you do it's probably a unicorn or the data and model you chose are just perfect for each other!
