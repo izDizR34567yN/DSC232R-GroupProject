@@ -46,7 +46,7 @@
 
          Finally, through select scatterplots, we seek a very generic level of insight concerning any potentially noteworthy relationships among features. While most pairs of features appear to be largely independent, a few pairs do exhibit an obvious degree of association that confirm sensible notions about them. For example, the following plot accurately reflects the physical definition of loudness as a logarithmic function of energy:
 
-![dsc232r_finalprojim1](https://github.com/izDizR34567yN/DSC232R-GroupProject/assets/169011035/73faf648-9f5a-4bba-85d1-6fe1eecec41a)
+   ![dsc232r_finalprojim1](https://github.com/izDizR34567yN/DSC232R-GroupProject/assets/169011035/73faf648-9f5a-4bba-85d1-6fe1eecec41a)
 
 
       ### Model 1
