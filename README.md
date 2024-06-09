@@ -89,7 +89,7 @@ Our diverse analysis methodologies thus all consistently affirmed that the clust
 
 ## Collaboration
 
-Andre: Dataset Selection, Initial Abstract, Data Exploration, Silhouette Score Method Code, Playlist Recommendation System Code
+Andre: Dataset Selection, Initial Abstract, Data Exploration, Silhouette Score Method Code, Playlist Recommender Code
 
 Indumini: Did not participate in the project.
 
