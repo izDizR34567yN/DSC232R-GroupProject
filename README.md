@@ -111,6 +111,6 @@ Andre: Dataset Selection, Initial Abstract, Data Exploration, Clustering Methods
 
 Indumini: Final Writeup Review
 
-Sami: Data Exploration, Revising/Debugging Elbow Method Code, Informal Empirical Test, Final Writeup
+Sami: Data Exploration, Revising/Debugging Elbow Method Code, Informal Empirical Test, Final Draft of Writeup
 
 Xing: Datatset Selection, Developing Elbow Method Code
