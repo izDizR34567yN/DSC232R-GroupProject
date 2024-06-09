@@ -73,7 +73,7 @@
    
    Here again, we find that seven is the preferred number of clusters for KMeans models; that eight is the preferred number of clusters for BisectingKMeans models; and that, overall, the performance of the KMeans model is generally somewhat better than that of the BisectingKMeans models for our dataset
 
-   #### Decision Tree Classifier on Cluster Samples
+   #### Informal Empirical Test: Decision Tree Classifier on Cluster Samples
 
    For each of the two best models determined, by sampling roughly 40 observations from each cluster generated and training a very simple decision tree classifier on the aggregated sample, we find the following:
 
