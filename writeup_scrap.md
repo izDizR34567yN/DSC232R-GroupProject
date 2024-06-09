@@ -65,6 +65,8 @@
 
    Quite fortunately, this plot exactly confirms our previous findings with respect to both KMeans and BisectingKMeans models. Namely, we have verified that seven is the preferred number of clusters for KMeans models; that eight is the preferred number of clusters for BisectingKMeans models; and that, overall, the performance of the KMeans model is generally somewhat better than that of the BisectingKMeans models for our dataset. Upon introducing Gaussian generative models in this analysis, we further find that they generally perform fairly poorly compared to the other two model types which we have evaluated on our dataset.
 
+    Lastly, we conduct an informal, empirical test to confirm that using the optimal KMeans model (i.e., with seven clusters) is preferred over using the optimal BisectingKMeans model (i.e., with eight clusters) determined for this dataset.
+
 
    6. Discussion section: This is where you will discuss the why, and your interpretation and your though process from beginning to end. This will mimic the sections you have created in your methods section as well as new sections you feel you need to create. You can also discuss how believable your results are at each step. You can discuss any short comings. It's ok to criticize as this shows your intellectual merit, as to how you are thinking about things scientifically and how you are able to correctly scrutinize things and find short comings. In science we never really find the perfect solution, especially since we know something will probably come up int he future (i.e. donkeys) and mess everything up. If you do it's probably a unicorn or the data and model you chose are just perfect for each other!
 
