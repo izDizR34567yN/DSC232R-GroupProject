@@ -77,7 +77,7 @@ Cluster | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7
 --- | --- | --- | --- | --- | --- | --- | --- | ---
 Accuracy | 86.11% | 97.56% | 0.0% | 56.41% | 51.52% | 12.12% | 59.62% | 65.71%
 
-While by no means the product of any rigorous test, the above tables offer some more empirical insight that further supports the notion we have more formally verified twice already--i.e., that our dataset prefers an optimized KMeans model (fit with seven clusters) to an optimized BisectingKMeans model (fit with eight clusters).
+While by no means the product of any rigorous test, the above tables offer some more empirical insight that further supports the notion we have more formally verified twice already--i.e., that our dataset seems to prefer an optimized KMeans model (fit with seven clusters) to an optimized BisectingKMeans model (fit with eight clusters).
 
 
    6. Discussion section: This is where you will discuss the why, and your interpretation and your though process from beginning to end. This will mimic the sections you have created in your methods section as well as new sections you feel you need to create. You can also discuss how believable your results are at each step. You can discuss any short comings. It's ok to criticize as this shows your intellectual merit, as to how you are thinking about things scientifically and how you are able to correctly scrutinize things and find short comings. In science we never really find the perfect solution, especially since we know something will probably come up int he future (i.e. donkeys) and mess everything up. If you do it's probably a unicorn or the data and model you chose are just perfect for each other!
