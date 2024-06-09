@@ -82,8 +82,7 @@ Cluster | 0 | 1 | 2 | 3 | 4 | 5 | 6
 --- | --- | --- | --- | --- | --- | --- | ---
 Accuracy | 0.0% | 100.0% | *N/A* | 100% | 88.57% | 97.87% | 100.0%
 
-
-<br /><br />
+<br />
 
 ***Proportion of correct predictions per cluster for BisectingKMeans with eight clusters***
 Cluster | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7
@@ -96,12 +95,14 @@ Accuracy | 86.11% | 97.56% | 0.0% | 56.41% | 51.52% | 12.12% | 59.62% | 65.71%
 
       ### Model Selection
 
-      Quite fortunately, the results of our elbow method analysis and those of our silhouette score analysis confirmed each other exactly. Namely, both analyses determined that seven is the preferred number of clusters for KMeans models; that eight is the preferred number of clusters for BisectingKMeans models; and that, overall, the performance of the KMeans model is generally somewhat better than that of the BisectingKMeans models for our dataset. Because of the rather inconvenient computational expense associated with training Gaussian generative models, we have forgone the elbow method on Gaussian generative models, and we have deemed it worthwile to only consider Gaussian generative models in the silhouette score analysis. This was an especially reasonable decision because our silhouette score analysis indicated that Gaussian generative models generally perform fairly poorly compared to the other two model types which we have evaluated on our dataset, and as such, Gaussian generative models did not appear to merit further analyses.
+      Quite fortunately, the results of our elbow method analysis and our silhouette score analysis both confirmed each other exactly. Namely, both analyses determined that seven is the preferred number of clusters for KMeans models; that eight is the preferred number of clusters for BisectingKMeans models; and that, overall, the performance of the KMeans model is generally somewhat better than that of the BisectingKMeans models for our dataset. Because of the rather inconvenient computational expense associated with training Gaussian generative models, we have forgone the elbow method on Gaussian generative models, and we have deemed it worthwile to only consider Gaussian generative models in the context of silhouette score analysis. This was an especially reasonable decision because our silhouette score analysis indicated that Gaussian generative models generally perform fairly poorly compared to the other two model types which we have evaluated on our dataset, and as such, Gaussian generative models did not appear to merit further analyses
 
-   7. Conclusion section: This is where you do a mind dump on your opinions and possible future directions. Basically what you wish you could have done differently. Here you close with final thoughts
+   8. Conclusion section: This is where you do a mind dump on your opinions and possible future directions. Basically what you wish you could have done differently. Here you close with final thoughts
 
       ## Conclusion
 
-   8. Collaboration section: This is a statement of contribution by each member. This will be taken into consideration when making the final grade for each member in the group. Did you work as a team? was there a team leader? project manager? coding? writer? etc. Please be truthful about this as this will determine individual grades in participation. There is no job that is better than the other. If you did no code but did the entire write up and gave feedback during the steps and collaborated then you would still get full credit. If you only coded but gave feedback on the write up and other things, then you still get full credit. If you managed everyone and the deadlines and setup meetings and communicated with teaching staff only then you get full credit. Every role is important as long as you collaborated and were integral to the completion of the project. If the person did nothing. they risk getting a big fat 0. Just like in any job, if you did nothing, you have the risk of getting fired. Teamwork is one of the most important qualities in industry and academia!!! Start with Name: Title: Contribution. If the person contributed nothing then just put in writing: Did not participate in the project.
+      
+
+   9. Collaboration section: This is a statement of contribution by each member. This will be taken into consideration when making the final grade for each member in the group. Did you work as a team? was there a team leader? project manager? coding? writer? etc. Please be truthful about this as this will determine individual grades in participation. There is no job that is better than the other. If you did no code but did the entire write up and gave feedback during the steps and collaborated then you would still get full credit. If you only coded but gave feedback on the write up and other things, then you still get full credit. If you managed everyone and the deadlines and setup meetings and communicated with teaching staff only then you get full credit. Every role is important as long as you collaborated and were integral to the completion of the project. If the person did nothing. they risk getting a big fat 0. Just like in any job, if you did nothing, you have the risk of getting fired. Teamwork is one of the most important qualities in industry and academia!!! Start with Name: Title: Contribution. If the person contributed nothing then just put in writing: Did not participate in the project.
 
 Your final model and final results summary will go in the last paragraph in of Part D.
