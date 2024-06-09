@@ -32,7 +32,10 @@ Our preliminary analysis further revealed that the dataset is mostly complete, w
 
 Finally, through select scatterplots, we seek a very generic level of insight concerning any potentially noteworthy relationships among features. While most pairs of features appear to be largely independent, a few pairs do exhibit an obvious degree of association that confirm sensible notions about them. For example, the following plot accurately reflects the physical definition of loudness as a logarithmic function of energy:
 
-![dsc232r_finalprojim1](https://github.com/izDizR34567yN/DSC232R-GroupProject/assets/169011035/73faf648-9f5a-4bba-85d1-6fe1eecec41a)
+<figure style="text-align: center;">
+  <img src="https://github.com/izDizR34567yN/DSC232R-GroupProject/assets/169011035/73faf648-9f5a-4bba-85d1-6fe1eecec41a">
+  <figcaption>Figure 1 - Scatter plot illustrating the relationship between Energy and Loudness of Spotify tracks.</figcaption>
+</figure>
 
 
 ### Model Selection
@@ -41,13 +44,20 @@ Finally, through select scatterplots, we seek a very generic level of insight co
 
 Upon training a KMeans model on the dataset across nine different choices for number of clusters, we are able to generate the following elbow plot:
 
-![dsc232r_finalprojim3](https://github.com/izDizR34567yN/DSC232R-GroupProject/assets/169011035/b6765169-39f5-4645-a9e1-eeaa084318d4)
+<figure style="text-align: center;">
+  <img src="https://github.com/izDizR34567yN/DSC232R-GroupProject/assets/169011035/b6765169-39f5-4645-a9e1-eeaa084318d4">
+  <figcaption>Figure 2 - Elbow Method for Optimal k: This plot illustrates the inertia values for different numbers of clusters (k) in a K-means clustering analysis.</figcaption>
+</figure>
 
 This plot clearly suggests that seven is the optimal number of clusters to choose when training a KMeans model on our dataset.
 
 In contrast, training a BisectingKMeans model on the dataset across the same range for number of clusters yields the following elbow plot:
 
-![dsc232r_finalprojim4](https://github.com/izDizR34567yN/DSC232R-GroupProject/assets/169011035/416fed82-68a8-4ac0-b8c3-687662a8e17f)
+<figure style="text-align: center;">
+  <img src="https://github.com/izDizR34567yN/DSC232R-GroupProject/assets/169011035/416fed82-68a8-4ac0-b8c3-687662a8e17f">
+  <figcaption>Figure 3 - Elbow Method for Optimal k (Bisecting KMeans): This plot shows the inertia values for different numbers of clusters (k) in a Bisecting KMeans clustering analysis.</figcaption>
+</figure>
+
 
 Unlike the KMeans model, the optimal number of clusters is somewhat less dramatically evident in this case. Still, with reasonable judgment, one would very likely select eight as the optimal number of clusters for training a BisectingKMeans model on our dataset. By comparing this elbow plot with the one previously generated for KMeans models, one may further notice that KMeans models appear to be preferred over BisectingKMeans models for this dataset.
 
@@ -55,7 +65,10 @@ Unlike the KMeans model, the optimal number of clusters is somewhat less dramati
 
 We have successfully generated the following compact plot of performances in terms of silhouette scores:
 
-![dsc232r_finalprojim2](https://github.com/izDizR34567yN/DSC232R-GroupProject/assets/169011035/30a0ab05-a50c-4f58-9fc0-e204a70f5323)
+<figure style="text-align: center;">
+  <img src="https://github.com/izDizR34567yN/DSC232R-GroupProject/assets/169011035/30a0ab05-a50c-4f58-9fc0-e204a70f5323">
+  <figcaption>Figure 4 - Silhouette Score Comparison: KMeans vs GMM vs BKM: This plot compares the silhouette scores for different numbers of clusters (k) across three clustering algorithms: KMeans (red line), Gaussian Mixture Model (GMM, blue line), and Bisecting KMeans (BKM, cyan line).</figcaption>
+</figure>
    
 Here again, we find that seven is the preferred number of clusters for KMeans models; that eight is the preferred number of clusters for BisectingKMeans models; and that, overall, the performance of the KMeans model is generally somewhat better than that of the BisectingKMeans models for our dataset
 
