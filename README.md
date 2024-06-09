@@ -87,3 +87,12 @@ While the formal analyses described above offered ample means for deciding on an
 
 Our diverse analysis methodologies thus all consistently affirmed that the clustering model with optimal performance for our dataset is a KMeans model fit with seven clusters. By comparison, we found that BisectingKMeans models performed worse thatn KMeans models in general, and that Gaussian mixture models tended to perform worst of all. Of course, to conform to a reasonable scale of work in reaching these conclusion, several interesting analytical prospects were necessarily neglected. Perhaps most notably, it would have been quite interesting to evaluate and compare the performances of a host of different types of available supervised learning models on the dataset after being labeled by a given clustering model. Moreover, by analyzing the decision boundaries produced by such supervised learning models, we might facilitate an intriguing means for detecting outliers or other dubious observations. We therefore trust that our analysis may have not only enabled practical applications such as the development of playlist recommendation systems, but that it may have also provided a flexible basis for further, more detailed analyses which may enhance performance in the context of this or other applications.
 
+## Collaboration
+
+Andre: Dataset Selection, Initial Abstract, Data Exploration, Silhouette Score Method Code, Playlist Recommendation System Code
+
+Indumini: Did not participate in the project.
+
+Sami: Data Exploration, Revising/Debugging Elbow Method Code, Informal Empirical Test, Final Writeup Draft
+
+Xing: Datatset Selection, Developing Elbow Method Code
