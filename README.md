@@ -109,7 +109,7 @@ Our diverse analysis methodologies thus all consistently affirmed that the clust
 
 Andre: Dataset Selection, Initial Abstract, Data Exploration, Clustering Methods Comparison Code, Playlist Recommender Code
 
-Indumini: Data Validation, README Creation, Final Writeup Revision
+Indumini: Final Writeup Review
 
 Sami: Data Exploration, Revising/Debugging Elbow Method Code, Informal Empirical Test, Final Writeup Draft
 
