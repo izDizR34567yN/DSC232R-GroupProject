@@ -18,6 +18,8 @@
 
    3. Methods section (this section will include the exploration results, preprocessing steps, models chosen in the order they were executed. Parameters chosen. Please make sub-sections for every step. i.e Data Exploration, Preprocessing, Model 1, Model 2, additional models are optional , (note models can be the same i.e. DNN but different versions of it if they are distinct enough. Changes can not be incremental). You can put links here to notebooks and/or code blocks using three ` in markup for displaying code. so it would look like this: ``` MY CODE BLOCK ```Note: A methods section does not include any why. the reason why will be in the discussion section. This is just a summary of your methods
 
+      ## Methods
+
       ### Data Exploration
   
          The dataset of interest accords to a simple DataFrame model and is available for [download](https://www.kaggle.com/datasets/sunnykakar/spotify-charts-all-audio-data) as a csv file on Kaggle. To account for its massive scale, we employ Apache Spark to facilitate efficient analysis of the dataset. We begin by rendering the dataset as a Spark DataFrame such that we may derive a preliminary overview of its contents. Thereafter, we are able to carry out a brief exploratory data analysis that includes inspecting and appropriately adjusting the dataset's schema, counting observations, generating summary statistics for numeric attributes, checking for missingness, and exploring select feature interactions through a series of simple scatterplots. The most significant results of this exploratory data analysis are outlined in the "Results" section of this report.
@@ -34,6 +36,8 @@
 
    5. Results section. This will include the results from the methods listed above (C). You will have figures here about your results as well. No exploration of results is done here. This is mainly just a summary of your results. The sub-sections will be the same as the sections in your methods section.
 
+      ## Results
+
       ### Data Exploration
 
          Our exploratory data analysis revealed that our dataset comprises 26,174,269 observations in a 28-dimensional feature space. In raw form, the dataset enforces a simple, monotonic schema in which all features are nullable strings, including those features which are semantically numerical. To enable statistical summarization of such features, we modify the given schema, casting features which are evidently numerical from string to float data types.
@@ -47,6 +51,8 @@
 
       ### Model Selection
 
+   #### Elbow Method
+
    Upon training a KMeans model on the dataset across nine different choices for number of clusters, we are able to generate the following elbow plot:
 
 ![dsc232r_finalprojim3](https://github.com/izDizR34567yN/DSC232R-GroupProject/assets/169011035/b6765169-39f5-4645-a9e1-eeaa084318d4)
@@ -57,15 +63,19 @@
 
 ![dsc232r_finalprojim4](https://github.com/izDizR34567yN/DSC232R-GroupProject/assets/169011035/416fed82-68a8-4ac0-b8c3-687662a8e17f)
 
-   Unlike the KMeans model, the optimal number of clusters is somewhat less dramatically evident in this case. Still with reasonable judgment, one would very likely select eight as the optimal number of clusters for training a BisectingKMeans model on our dataset. By comparing this elbow plot with the one previously generated for KMeans models, one may further notice that KMeans models appear to be preferred over BisectingKMeans models for this dataset.
+   Unlike the KMeans model, the optimal number of clusters is somewhat less dramatically evident in this case. Still, with reasonable judgment, one would very likely select eight as the optimal number of clusters for training a BisectingKMeans model on our dataset. By comparing this elbow plot with the one previously generated for KMeans models, one may further notice that KMeans models appear to be preferred over BisectingKMeans models for this dataset.
 
-   In hopes of confirming these main findings, we again train KMeans models and BisectingKMeans models across the same range of number of clusters and calculate their silhouette scores. We also train Gaussian generative models over the same range. Because of the rather inconvenient computational expense associated with training Gaussian generative models, we have forgone the elbow method on Gaussian generative models, and we have deemed it worthwile to only consider Gaussian generative models in this silhouette score analysis. Ultimately, we were able to successfully generate the following compact plot of performances in terms of silhouette scores:
+   #### Silhouette Scores
+
+   We have successfully generated the following compact plot of performances in terms of silhouette scores:
 
 ![dsc232r_finalprojim2](https://github.com/izDizR34567yN/DSC232R-GroupProject/assets/169011035/30a0ab05-a50c-4f58-9fc0-e204a70f5323)
+   
+   Here again, we find that seven is the preferred number of clusters for KMeans models; that eight is the preferred number of clusters for BisectingKMeans models; and that, overall, the performance of the KMeans model is generally somewhat better than that of the BisectingKMeans models for our dataset
 
-   Quite fortunately, this plot exactly confirms our previous findings with respect to both KMeans and BisectingKMeans models. Namely, we have verified that seven is the preferred number of clusters for KMeans models; that eight is the preferred number of clusters for BisectingKMeans models; and that, overall, the performance of the KMeans model is generally somewhat better than that of the BisectingKMeans models for our dataset. Upon introducing Gaussian generative models in this analysis, we further find that they generally perform fairly poorly compared to the other two model types which we have evaluated on our dataset.
+   #### Decision Tree Classifier on Cluster Samples
 
-   Lastly, we conduct an informal, empirical test which yet again supports the notion that using the optimal KMeans model (i.e., with seven clusters) is preferred over using the optimal BisectingKMeans model (i.e., with eight clusters) determined for this dataset. For each of these two models, by sampling roughly 40 observations from each cluster generated and training a very simple decision tree classifier on the aggregated sample, we find the following:
+   For each of the two best models determined, by sampling roughly 40 observations from each cluster generated and training a very simple decision tree classifier on the aggregated sample, we find the following:
 
 ***Proportion of correct predictions per cluster for KMeans with seven clusters***
 Cluster | 0 | 1 | 2 | 3 | 4 | 5 | 6
@@ -77,18 +87,17 @@ Cluster | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7
 --- | --- | --- | --- | --- | --- | --- | --- | ---
 Accuracy | 86.11% | 97.56% | 0.0% | 56.41% | 51.52% | 12.12% | 59.62% | 65.71%
 
-While by no means the product of any rigorous test, the above tables offer some more empirical insight that further supports the notion we have more formally verified twice already--i.e., that our dataset seems to prefer an optimized KMeans model (fit with seven clusters) to an optimized BisectingKMeans model (fit with eight clusters).
-
-
    6. Discussion section: This is where you will discuss the why, and your interpretation and your though process from beginning to end. This will mimic the sections you have created in your methods section as well as new sections you feel you need to create. You can also discuss how believable your results are at each step. You can discuss any short comings. It's ok to criticize as this shows your intellectual merit, as to how you are thinking about things scientifically and how you are able to correctly scrutinize things and find short comings. In science we never really find the perfect solution, especially since we know something will probably come up int he future (i.e. donkeys) and mess everything up. If you do it's probably a unicorn or the data and model you chose are just perfect for each other!
 
-      ### Discussion
+      ## Discussion
 
-      
+      ### Model Selection
+
+      Quite fortunately, the results of our elbow method analysis and those of our silhouette score analysis confirmed each other exactly. Namely, both analyses determined that seven is the preferred number of clusters for KMeans models; that eight is the preferred number of clusters for BisectingKMeans models; and that, overall, the performance of the KMeans model is generally somewhat better than that of the BisectingKMeans models for our dataset. Because of the rather inconvenient computational expense associated with training Gaussian generative models, we have forgone the elbow method on Gaussian generative models, and we have deemed it worthwile to only consider Gaussian generative models in the silhouette score analysis. When considering Gaussian generative models in this analysis, we have found that they generally perform fairly poorly compared to the other two model types which we have evaluated on our dataset.
 
    7. Conclusion section: This is where you do a mind dump on your opinions and possible future directions. Basically what you wish you could have done differently. Here you close with final thoughts
 
-      ### Conclusion
+      ## Conclusion
 
    8. Collaboration section: This is a statement of contribution by each member. This will be taken into consideration when making the final grade for each member in the group. Did you work as a team? was there a team leader? project manager? coding? writer? etc. Please be truthful about this as this will determine individual grades in participation. There is no job that is better than the other. If you did no code but did the entire write up and gave feedback during the steps and collaborated then you would still get full credit. If you only coded but gave feedback on the write up and other things, then you still get full credit. If you managed everyone and the deadlines and setup meetings and communicated with teaching staff only then you get full credit. Every role is important as long as you collaborated and were integral to the completion of the project. If the person did nothing. they risk getting a big fat 0. Just like in any job, if you did nothing, you have the risk of getting fired. Teamwork is one of the most important qualities in industry and academia!!! Start with Name: Title: Contribution. If the person contributed nothing then just put in writing: Did not participate in the project.
 
