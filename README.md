@@ -2,86 +2,83 @@
 
 # Spotify Music Analysis and Playlist Generation
 
-## Project Overview
+## Introduction
 
-This project aims to analyze the Spotify Charts dataset and develop a machine learning model to create personalized playlists based on audio features of the tracks. The goal is to cluster songs into different categories and generate playlists that fit specific themes or moods.
+This project aims to analyze a Spotify Charts dataset and develop a machine learning model to create personalized playlists based on audio features of the tracks. The goal is to cluster songs into different categories and generate playlists that fit specific themes or moods. The dataset used in this project is the [Spotify Charts (All Audio Data)](https://www.kaggle.com/datasets/sunnykakar/spotify-charts-all-audio-data) dataset from Kaggle, which includes various attributes related to Spotify music tracks. Millions of observations with dozens of attributes render this dataset an unwieldy tangle of unrefined information, largely void of practical value in its raw form. By implementing scalable computational methods and technology, we aim to develop efficient model that can derive meaningful insights from an otherwise cryptic mass of information.
 
-## Dataset
+ ## Methods
 
-The dataset used in this project is the Spotify Charts dataset from Kaggle, which includes various attributes related to Spotify music tracks. The dataset contains 26,174,269 observations with attributes like ID, Title, Rank, Date, Artist, URL, Region, Chart, Trend, Streams, Track ID, Album, Popularity, Duration_ms, Explicit, Release_date, Available_markets, and Audio Features.
+### Data Exploration
+  
+The dataset of interest accords to a simple DataFrame model and is available for [download](https://www.kaggle.com/datasets/sunnykakar/spotify-charts-all-audio-data) as a csv file on Kaggle. To account for its massive scale, we employ Apache Spark to facilitate efficient analysis of the dataset. We begin by rendering the dataset as a Spark DataFrame such that we may derive a preliminary overview of its contents. Thereafter, we are able to carry out a brief exploratory data analysis that includes inspecting and appropriately adjusting the dataset's schema, counting observations, generating summary statistics for numeric attributes, checking for missingness, and exploring select feature interactions through a series of simple scatterplots. The most significant results of this exploratory data analysis are outlined in the "Results" section of this report.
+      
+### Preprocessing
 
-## Data Preprocessing
+Having completed a brief exploratory data analysis, we proceed to carry out appropriate preprocessing measures. This includes generic steps of restricting our interest to a relevant subset of select features, scaling numeric features, one-hot encoding categorical features, and dropping or imputing features with missing values.
 
-### Initial Preprocessing
-- Removed columns with a significant proportion of nulls.
-- Checked for and removed entirely empty rows.
-- Converted relevant columns to float data types to facilitate numerical operations.
+### Model Selection
 
-### Major Preprocessing
-- Scaled numerical features to ensure uniformity.
-- Imputed missing values using appropriate strategies (mean, median, or mode).
-- Encoded categorical features as necessary.
-- Expanded features to include new audio-related attributes for better clustering.
+Our chief purpose in analyzing this dataset is to develop a means for effectively categorizing its records without having been provided any such categorical labels in the dataset, the practical relevance of which may be realized, for example, through a playlist recommender. Clearly, therefore, our purpose fundamentally demands an unsupervised learning approach. With this in mind, we proceed to train and compare signature clustering models provided in the pyspark API, on the preprocessed dataset, such that any categories implicitly described by the dataset may be revealed. Namely, we compare the performances of KMeans, BisectingKMeans, and Gaussian Mixture models through an analysis of the silhouette scores each produces across different numbers of clusters, and we consider the results of this analysis to select an optimal model. Additionally, through an alternative analysis involving the elbow method, we hope to confirm the results of this analysis based on silhouette scores. Finally, we aim to exemplify the practical value of our analyses by building a playlist recommender based on the best model prescribed by our analysis.
 
-## Feature Engineering
-
-### Audio Features
-We focused on the following audio features for clustering and playlist generation:
-- `af_danceability`
-- `af_energy`
-- `af_key`
-- `af_loudness`
-- `af_mode`
-- `af_speechiness`
-- `af_acousticness`
-- `af_instrumentalness`
-- `af_liveness`
-- `af_valence`
-- `af_tempo`
-- `af_time_signature`
-
-## Machine Learning Model
-
-### KMeans Clustering
-We implemented KMeans clustering to group tracks based on their audio features. 
-
-#### Steps:
-1. Assembled the audio features into a single vector.
-2. Scaled the features using `StandardScaler`.
-3. Applied KMeans clustering to the scaled features.
-4. Used the Elbow Method to determine the optimal number of clusters for extracting themes or categories.
-5. Generated predictions and assigned cluster labels to each track.
-
-### Silhouette Score
-We used the silhouette score to evaluate the quality of the clusters for the playlist generation. This score helped us select the best configuration for clustering.
-
+For further insights into the performance of each models, we randomly sample roughly 40 observations from each cluster generated by a given model. From each sample, we aim to infer the character of its respective cluster. Because manual inspection may be tedious or error-prone, we instead unify the samples (with cluster labels) into a single small-scale dataset on which we train a simple decision tree classifier--in scikit-learn--and plot the resulting decision tree to extract the per-cluster insights we seek. For simplicity, we set the maximum number of leaf nodes in this decision tree classifier equal to the number of clusters used. To estimate the accuracy of the categorization mechanism embodied a given clustering model, we calculate the proportion of correct predictions the decision tree makes on each cluster.
 
 ## Results
 
-The KMeans clustering model successfully grouped the tracks into distinct clusters based on their audio characteristics. This allows for the creation of playlists that cater to specific themes or moods.
+### Data Exploration
 
-## Conclusion
+Our exploratory data analysis revealed that our dataset comprises 26,174,269 observations in a 28-dimensional feature space. In raw form, the dataset enforces a simple, monotonic schema in which all features are nullable strings, including those features which are semantically numerical. To enable statistical summarization of such features, we modify the given schema, casting features which are evidently numerical from string to float data types.
 
-The initial model using KMeans clustering provided a good starting point for playlist generation based on audio features. However, there is room for improvement:
+Our preliminary analysis further revealed that the dataset is mostly complete, with relatively few missing values. The percentage of missing values per attribute is well under 2%, and only one feature ("streams") contains a notable proportion (22.37%) of missing values. To avoid sampling bias on this feature--and because we expect the number of streams per record to be comparatively insignificant for our purposes--we simply exclude this feature from our future analyses.
 
-### Next Steps:
-1. **Model Enhancements**: Experiment with other clustering algorithms like DBSCAN or hierarchical clustering to see if they provide better results.
-2. **Feature Selection**: Incorporate additional features such as artist popularity, track release date, and region-specific preferences to refine the clustering.
-3. **User Feedback Integration**: Develop a system to incorporate user feedback to dynamically adjust playlists and improve recommendation accuracy.
+Finally, through select scatterplots, we seek a very generic level of insight concerning any potentially noteworthy relationships among features. While most pairs of features appear to be largely independent, a few pairs do exhibit an obvious degree of association that confirm sensible notions about them. For example, the following plot accurately reflects the physical definition of loudness as a logarithmic function of energy:
 
-### Conclusion of the First Model:
-The first model demonstrated that clustering based on audio features is a viable approach to generating themed playlists. To improve the model:
-- We could enhance feature engineering by including more contextual information about tracks and users.
-- Implementing a feedback loop to adapt to user preferences could significantly increase the relevance of the generated playlists.
+![dsc232r_finalprojim1](https://github.com/izDizR34567yN/DSC232R-GroupProject/assets/169011035/73faf648-9f5a-4bba-85d1-6fe1eecec41a)
 
-## Code and Notebooks
 
-The complete code and notebooks for this project are available in the repository. The main files include:
-- `Milestone_3_Notebook.ipynb`: The latest implementation with updates for milestone 3.
-- `samples.ipynb`: Preliminary evaluations of samples from generated clusters.
-- `README.md`: This updated README file with the new work and modifications.
+### Model Selection
 
-## Links to Code and Notebooks
-- [Milestone 3 Notebook](Milestone3_Notebook.ipynb)
-- [Samples Notebook](samples.ipynb)
-- [README File](README.md)
+#### Elbow Method
+
+Upon training a KMeans model on the dataset across nine different choices for number of clusters, we are able to generate the following elbow plot:
+
+![dsc232r_finalprojim3](https://github.com/izDizR34567yN/DSC232R-GroupProject/assets/169011035/b6765169-39f5-4645-a9e1-eeaa084318d4)
+
+This plot clearly suggests that seven is the optimal number of clusters to choose when training a KMeans model on our dataset.
+
+In contrast, training a BisectingKMeans model on the dataset across the same range for number of clusters yields the following elbow plot:
+
+![dsc232r_finalprojim4](https://github.com/izDizR34567yN/DSC232R-GroupProject/assets/169011035/416fed82-68a8-4ac0-b8c3-687662a8e17f)
+
+Unlike the KMeans model, the optimal number of clusters is somewhat less dramatically evident in this case. Still, with reasonable judgment, one would very likely select eight as the optimal number of clusters for training a BisectingKMeans model on our dataset. By comparing this elbow plot with the one previously generated for KMeans models, one may further notice that KMeans models appear to be preferred over BisectingKMeans models for this dataset.
+
+#### Silhouette Scores
+
+We have successfully generated the following compact plot of performances in terms of silhouette scores:
+
+![dsc232r_finalprojim2](https://github.com/izDizR34567yN/DSC232R-GroupProject/assets/169011035/30a0ab05-a50c-4f58-9fc0-e204a70f5323)
+   
+Here again, we find that seven is the preferred number of clusters for KMeans models; that eight is the preferred number of clusters for BisectingKMeans models; and that, overall, the performance of the KMeans model is generally somewhat better than that of the BisectingKMeans models for our dataset
+
+#### Informal Empirical Test: Decision Tree Classifier on Cluster Samples
+
+For each of the two best models determined, by sampling roughly 40 observations from each cluster generated and training a very simple decision tree classifier on the aggregated sample, we find the following:
+
+***Proportion of correct predictions per cluster for KMeans with seven clusters***
+Cluster | 0 | 1 | 2 | 3 | 4 | 5 | 6
+--- | --- | --- | --- | --- | --- | --- | ---
+Accuracy | 0.0% | 100.0% | *N/A* | 100% | 88.57% | 97.87% | 100.0%
+
+<br />
+
+***Proportion of correct predictions per cluster for BisectingKMeans with eight clusters***
+Cluster | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7
+--- | --- | --- | --- | --- | --- | --- | --- | ---
+Accuracy | 86.11% | 97.56% | 0.0% | 56.41% | 51.52% | 12.12% | 59.62% | 65.71%
+
+## Discussion
+
+### Model Selection
+
+Quite fortunately, the results of our elbow method analysis and our silhouette score analysis happened to both confirm each other exactly. Namely, both analyses determined that seven is the preferred number of clusters for KMeans models; that eight is the preferred number of clusters for BisectingKMeans models; and that, overall, the performance of the KMeans model is generally somewhat better than that of the BisectingKMeans models for our dataset. Because of the rather inconvenient computational expense associated with training Gaussian generative models, we have forgone the elbow method on Gaussian generative models, and we have deemed it worthwile to only consider Gaussian generative models in the context of silhouette score analysis. This was an especially reasonable decision because our silhouette score analysis indicated that Gaussian generative models generally perform fairly poorly compared to the other two model types which we have evaluated on our dataset, and as such, Gaussian generative models did not appear to merit further analyses.
+
+While the formal analyses described above offered ample means for deciding on an optimal model, we also sought a more quantitative, empirical perspective of how the best models performed. To this end, we conducted an informal empirical test involving sampling from the clusters generated by a given model of interest, training a small decision tree on the aggregated sample, and recording the per-cluster accuracy of the decision tree. While this is--by no means--a formal, substantive test, the results it yielded were still rather intriguing and, in some respects, even assuring. For example, the results pertaining to the best KMeans model (fit with seven clusters) reflected significantly better accuracies, in general, than that of the best BisectingKMeans model (fit with eight clusters). This was even despite the fact that the decision tree fit for the KMeans model was fit with only six maximum leaf nodes as compared to the eight maximum leaf nodes used for the BisectingKMeans. I.e., the decision tree fit for the KMeans model was far more primitive than that of the BisectingKMeans model, yet it performed substantially better in discerining clusters. Thus, this test not only reaffirms our dataset's preference for KMeans models to BisectingKMeans models, but it also illustrates this preference far more dramatically.
