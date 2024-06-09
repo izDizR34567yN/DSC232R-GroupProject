@@ -103,13 +103,19 @@ While the formal analyses described above offered ample means for deciding on an
 
 ## Conclusion
 
-Our diverse analysis methodologies thus all consistently affirmed that the clustering model with optimal performance for our dataset is a KMeans model fit with seven clusters. By comparison, we found that BisectingKMeans models performed worse thatn KMeans models in general, and that Gaussian mixture models tended to perform worst of all. Of course, to conform to a reasonable scale of work in reaching these conclusion, several interesting analytical prospects were necessarily neglected. Perhaps most notably, it would have been quite interesting to evaluate and compare the performances of a host of different types of available supervised learning models on the dataset after being labeled by a given clustering model. Moreover, by analyzing the decision boundaries produced by such supervised learning models, we might facilitate an intriguing means for detecting outliers or other dubious observations. We therefore trust that our analysis may have not only enabled practical applications such as the development of playlist recommendation systems, but that it may have also provided a flexible basis for further, more detailed analyses which may enhance performance in the context of this or other applications.
+Our diverse analysis methodologies thus all consistently affirmed that the clustering model with optimal performance for our dataset is a KMeans model fit with seven clusters. By comparison, we found that BisectingKMeans models performed worse than KMeans models in general, and that Gaussian mixture models tended to perform worst of all. Of course, to conform to a reasonable scale of work in reaching these conclusion, several interesting analytical prospects were necessarily neglected. Perhaps most notably, it would have been quite interesting to evaluate and compare the performances of a host of different types of available supervised learning models on the dataset after being labeled by a given clustering model. Moreover, by analyzing the decision boundaries produced by such supervised learning models, we might facilitate an intriguing means for detecting outliers or other dubious observations. We therefore trust that our analysis may have not only enabled practical applications such as the development of playlist recommendation systems, but that it may have also provided a flexible basis for further, more detailed analyses which may enhance performance in the context of this or other applications.
+
+For future research and improvement of our models, several avenues appear particularly promising. Firstly, collecting better data; incorporating more dynamic and temporal features such as seasonal trends in music preferences or changes in listening behavior over time could significantly enhance the predictive power and relevance of our clustering models. Such features may allow us to develop more nuanced clusters that better reflect changing musical tastes or contextual influences on listening habits.
+
+Secondly, leveraging more sophisticated dimensionality reduction techniques like t-SNE or UMAP before clustering could reveal deeper insights into the structure of the data, potentially uncovering subtler patterns that are not captured by traditional methods. These techniques could help in visualizing high-dimensional data in two or three dimensions, providing a more intuitive understanding of the clusters and their relationships.
+
+Lastly, in a real-world environment (production), exploring the integration of user feedback into the clustering process could also be highly beneficial. By incorporating user preferences or feedback loops into the model, such as allowing users to rate the relevance of playlist recommendations, the model can continuously learn and adapt to individual tastes. This approach could transform our static models into dynamic learning systems that evolve based on user interaction, thereby improving recommendation accuracy and user satisfaction over time.
 
 ## Collaboration
 
 Andre: Dataset Selection, Initial Abstract, Data Exploration, Clustering Methods Comparison Code, Playlist Recommender Code
 
-Indumini: Final Writeup Review
+Indumini: Final Draft of Writeup
 
 Sami: Data Exploration, Revising/Debugging Elbow Method Code, Informal Empirical Test, Final Draft of Writeup
 
