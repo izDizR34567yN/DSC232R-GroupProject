@@ -82,6 +82,8 @@ Cluster | 0 | 1 | 2 | 3 | 4 | 5 | 6
 --- | --- | --- | --- | --- | --- | --- | ---
 Accuracy | 0.0% | 100.0% | *N/A* | 100% | 88.57% | 97.87% | 100.0%
 
+
+
 ***Proportion of correct predictions per cluster for BisectingKMeans with eight clusters***
 Cluster | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7
 --- | --- | --- | --- | --- | --- | --- | --- | ---
