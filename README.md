@@ -1,4 +1,4 @@
-# DSC232R-GroupProject
+# DSC232R-GroupProject (the most up-to-date code is now under the 'Milestone4' branch)
 
 # Spotify Music Analysis and Playlist Generation
 
